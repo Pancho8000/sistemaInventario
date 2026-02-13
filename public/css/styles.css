@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #0f9d58;
+    --primary-hover: #0b7d46;
+    --secondary-color: #34495e;
+    --bg-color: #f4f6f9;
+    --text-color: #2c3e50;
+    --sidebar-width: 260px;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --card-radius: 12px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Sidebar Styling */
+.sidebar {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: var(--sidebar-width);
+    background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%);
+    padding-top: 0;
+    padding-bottom: 80px;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Sidebar Scrollbar */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.sidebar-header {
+    background-color: rgba(0,0,0,0.2);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar-header h4 {
+    color: #fff;
+    font-weight: 600;
+    margin: 0;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+}
+
+.sidebar a {
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #aeb9c6;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s;
+    border-left: 4px solid transparent;
+}
+
+.sidebar a i {
+    margin-right: 10px;
+    font-size: 1.1rem;
+    width: 25px;
+    text-align: center;
+}
+
+.sidebar a:hover {
+    color: #fff;
+    background-color: rgba(255,255,255,0.05);
+    border-left-color: var(--primary-color);
+}
+
+.sidebar a.active, .sidebar a.bg-primary {
+    background-color: var(--primary-color) !important;
+    color: #fff !important;
+    border-left-color: #0b7d46;
+}
+
+.sidebar hr {
+    border-color: rgba(255,255,255,0.1);
+    margin: 15px 0;
+}
+
+/* Content Area */
+.content {
+    margin-left: var(--sidebar-width);
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+    background-color: #fff;
+    margin-bottom: 20px;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 15px 20px;
+    border-radius: var(--card-radius) var(--card-radius) 0 0 !important;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.card-header.bg-primary {
+    background-color: var(--primary-color) !important;
+    color: #fff !important;
+}
+
+.card-header.bg-success {
+    background-color: #198754 !important;
+    color: #fff !important;
+}
+
+.card-header.bg-dark {
+    background-color: var(--secondary-color) !important;
+    color: #fff !important;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+/* Tables */
+.table-responsive {
+    border-radius: var(--card-radius);
+    overflow: hidden;
+}
+
+.table thead th {
+    background-color: #f8f9fa;
+    color: var(--secondary-color);
+    font-weight: 600;
+    border-bottom: 2px solid #e9ecef;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Forms */
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    padding: 10px 15px;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 3px rgba(15, 157, 88, 0.2);
+    border-color: var(--primary-color);
+}
+
+/* Custom Utilities */
+.text-primary-custom {
+    color: var(--primary-color);
+}
+
+/* Print Styles */
+@media print {
+    .sidebar, .btn, form, .no-print, .card-header button {
+        display: none !important;
+    }
+    .content {
+        margin-left: 0 !important;
+        padding: 0 !important;
+    }
+    .card {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+    body {
+        background-color: #fff !important;
+        font-size: 12pt;
+    }
+    table {
+        width: 100% !important;
+    }
+    a {
+        text-decoration: none !important;
+        color: #000 !important;
+    }
+    a[href]:after { content: none !important; }
+}
